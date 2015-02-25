@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Twig renderer
+    #
+#    elcodi_plugin.paymill.renderer:
+#        class: Elcodi\Plugin\PaymillBundle\Templating\TwigRenderer
+#        calls:
+#            - [setTemplating, [@twig]]
+#            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\PaymillBundle")]]
+#        tags:
+#            - { name: kernel.event_listener, event: payment.test, method: renderJavascript }

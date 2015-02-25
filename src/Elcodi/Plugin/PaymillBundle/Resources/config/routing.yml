@@ -1,0 +1,3 @@
+ElcodiPaymillBundle:
+    resource: "@ElcodiPaymillBundle/Controller/"
+    type:     annotation
