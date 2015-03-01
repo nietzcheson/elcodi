@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi.event_listener.product_slug:
+        class: %elcodi.event_listener.product_slug.class%
+        arguments:
+            slugify: @elcodi.service.slugify
+        tags:
+            - { name: doctrine.event_listener, event: preFlush, method: preFlush, priority: 100 }

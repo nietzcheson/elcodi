@@ -17,3 +17,9 @@ services:
         factory_service: elcodi.provider.repository
         factory_method: getRepositoryByEntityNamespace
         abstract: true
+
+    #
+    # Services
+    #
+    elcodi.service.slugify:
+        class: %elcodi.service.slugify.class%

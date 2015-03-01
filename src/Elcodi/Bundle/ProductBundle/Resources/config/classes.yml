@@ -18,3 +18,8 @@ parameters:
     # Twig extensions
     #
     elcodi.twig_extension.product.class: Elcodi\Component\Product\Twig\ProductExtension
+
+    #
+    # Event Listener
+    #
+    elcodi.event_listener.product_slug.class: Elcodi\Bundle\ProductBundle\EventListeners\ProductSlugEventListener

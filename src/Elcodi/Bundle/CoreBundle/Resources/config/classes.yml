@@ -32,3 +32,8 @@ parameters:
     # EventDispatchers
     #
     elcodi.event_listener.referrer_session.class: Elcodi\Component\Core\EventListener\ReferrerSessionEventListener
+
+    #
+    # Services
+    #
+    elcodi.service.slugify.class: Elcodi\Component\Core\Services\Slugify
