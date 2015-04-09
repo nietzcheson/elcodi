@@ -15,21 +15,19 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Component\Sitemap\Render\Interfaces;
-
-use Elcodi\Component\Sitemap\Profile\Interfaces\SitemapProfileInterface;
+namespace Elcodi\Component\Sitemap\Renderer\Interfaces;
 
 /**
- * Interface SitemapRenderInterface
+ * Interface SitemapRendererInterface
  */
-interface SitemapRenderInterface
+interface SitemapRendererInterface
 {
     /**
-     * Render a sitemap profile
+     * Given an array of sitemapElements, render the Sitemap
      *
-     * @param SitemapProfileInterface $sitemapProfile Sitemap profile
+     * @param array $sitemapElements Elements
      *
-     * @return string Rendered XML
+     * @return string Render
      */
-    public function render(SitemapProfileInterface $sitemapProfile);
+    public function render(array $sitemapElements);
 }

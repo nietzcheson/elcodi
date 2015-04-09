@@ -17,88 +17,68 @@
 
 namespace Elcodi\Component\Sitemap\Profile;
 
-use Elcodi\Component\Sitemap\Loader\Interfaces\EntityLoaderInterface;
-use Elcodi\Component\Sitemap\Profile\Interfaces\SitemapProfileInterface;
+use Elcodi\Component\Sitemap\Builder\SitemapBuilder;
 
 /**
  * Class SitemapProfile
  */
-class SitemapProfile implements SitemapProfileInterface
+class SitemapProfile
 {
     /**
-     * @var EntityLoaderInterface[]
+     * @var array
      *
-     * Entity loaders
+     * Languages
      */
-    protected $entityLoaders;
+    protected $languages;
 
     /**
-     * @var string
+     * @var SitemapBuilder[]
      *
-     * Path
+     * Array of SitemapBuilders
      */
-    protected $path;
-
-    /**
-     * @var string
-     *
-     * Name
-     */
-    protected $name;
+    protected $sitemapBuilders;
 
     /**
      * Construct
      *
-     * @param string $name Name
-     * @param string $path Path
+     * @var array $languages Languages
      */
-    public function __construct($name, $path)
+    public function __construct(array $languages = null)
     {
-        $this->name = $name;
-        $this->path = $path;
+        $this->languages = $languages;
     }
 
     /**
-     * Add entity loader
+     * Add a sitemapBuilder
      *
-     * @param EntityLoaderInterface $entityLoader Entity Loader
+     * @param SitemapBuilder $sitemapBuilder Sitemap Builder
      *
      * @return $this Self object
      */
-    public function addEntityLoader(EntityLoaderInterface $entityLoader)
+    public function addSitemapBuilder(SitemapBuilder $sitemapBuilder)
     {
-        $this->entityLoaders[] = $entityLoader;
+        $this->sitemapBuilders[] = $sitemapBuilder;
 
         return $this;
     }
 
     /**
-     * Get Entity loaders
+     * Build full profile
      *
-     * @return EntityLoaderInterface[] Entity loaders
+     * @return $this Self object
      */
-    public function getEntityLoaders()
+    public function build()
     {
-        return $this->entityLoaders;
-    }
+        foreach ($this->sitemapBuilders as $sitemapBuilder) {
+            if (is_array($this->languages)) {
+                foreach ($this->languages as $language) {
+                    $sitemapBuilder->build($language);
+                }
+            } else {
+                $sitemapBuilder->build();
+            }
+        }
 
-    /**
-     * Get Name
-     *
-     * @return string Name
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get Path
-     *
-     * @return string Path
-     */
-    public function getPath()
-    {
-        return $this->path;
+        return $this;
     }
 }

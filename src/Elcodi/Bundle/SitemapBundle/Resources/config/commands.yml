@@ -1,0 +1,18 @@
+services:
+
+    #
+    # Commands
+    #
+    elcodi.command.sitemap_build:
+        class: Elcodi\Component\Sitemap\Command\SitemapBuildCommand
+        arguments:
+            - @service_container
+        tags:
+            -  { name: console.command }
+
+    elcodi.command.sitemap_profile:
+        class: Elcodi\Component\Sitemap\Command\SitemapProfileCommand
+        arguments:
+            - @service_container
+        tags:
+            -  { name: console.command }

@@ -15,17 +15,19 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Component\Sitemap\Dumper\Interfaces;
+namespace Elcodi\Component\Sitemap\Element\Interfaces;
 
 /**
- * Interface SitemapDumperInterface
+ * Interface SitemapElementGeneratorInterface
  */
-interface SitemapDumperInterface
+interface SitemapElementGeneratorInterface
 {
     /**
-     * Dump all the sitemap content into the desired render
+     * Generate desired elements
      *
-     * @return $this self Object
+     * @param string|null $language Language
+     *
+     * @return array Elements generated
      */
-    public function dump();
+    public function generateElements($language = null);
 }
